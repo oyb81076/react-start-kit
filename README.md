@@ -22,18 +22,19 @@ react模块
 import Loadable from 'react-loadable';
 import Loading from './Loading';
 const User = Loadable({
-  loader: ()=> import("@rt/react-admin-user")
+  loader: ()=> import("@rt/react-admin-user"),
   loading: Loading,
 })
 const Home = Loadable({
-  loader: ()=> import("@rt/react-admin-home")
+  loader: ()=> import("@rt/react-admin-home"),
   loading: Loading,
 })
-export const Main = ()=>
+export const Main = ()=>(
   <Switch>
     <Route exact path="/" component={Home} />
     <Route path="/user" component={User} />
   </Switch>
+)
 ```
 ### 目录说明
 ```
