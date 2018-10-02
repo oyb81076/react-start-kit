@@ -17,7 +17,7 @@ react模块
 开发的时候在模块所在目录内执行 ``yarn start`` 进行开发  
 该命令会启动一个webpack-dev-server 来运行 example/index.ts 中的例子
 ### code split
-[官方文档](https://reacttraining.com/react-router/web/guides/code-splitting)
+[react-router官方文档](https://reacttraining.com/react-router/web/guides/code-splitting)
 ```tsx
 import Loadable from 'react-loadable';
 import Loading from './Loading';
@@ -41,29 +41,6 @@ export const Main = ()=>
 /reacts/{name}/config  - 编译配置
 /reacts/{name}/src     - 源代码
 /reacts/{name}/test    - 测试
-```
-### react开发相关的配置
-```json
-// package.json
-{
-  "name": "@rt/<name>",
-  "scripts": {
-    "start": "webpack-dev-server --config=config/webpack.dev.config.ts"
-  }
-}
-```
-```ts
-// config/webpack.dev.config.ts
-import { createDevConfig } from "@pk/webpack-packager";
-import * as path from "path";
-process.env.NODE_ENV = "development";
-export = createDevConfig({
-  entries: [
-    path.join(__dirname, "../example/index.ts"),
-  ],
-  port: 3000,
-  title: require("../package.json").name
-});
 ```
 # /serves -- @sv
 服务器模块
