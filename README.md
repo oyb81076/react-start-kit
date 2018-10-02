@@ -7,13 +7,14 @@ react模块
 ```
 /reacts/react-ui            - 通用ui模块
 /reacts/react-sign          - 登录模块
-/reacts/react-admin         - 后台入口, 融合react-sign,react-admin-user,react-admin-product,本身并不拥有太多逻辑
+/reacts/react-admin         - 后台模块
+                              启动loading, routes, 以及code split, 不包含业务代码
 /reacts/react-admin-user    - 后台用户管理模块
 /reacts/react-admin-product - 商品模块
-/reacts/react-www           - 前台页面
+/reacts/react-www           - 前台页面, 考虑是否要ssr
 ...
 ```
-开发的时候在模块所在目录内执行 ``yarn start`` 进行开发
+开发的时候在模块所在目录内执行 ``yarn start`` 进行开发  
 该命令会启动一个webpack-dev-server 来运行 example/index.ts 中的例子
 ### code split
 [官方文档](https://reacttraining.com/react-router/web/guides/code-splitting)
@@ -46,7 +47,6 @@ export const Main = ()=>
 // package.json
 {
   "name": "@rt/<name>",
-  // ...
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.config.ts"
   }
