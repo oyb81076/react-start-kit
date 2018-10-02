@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "build"
+  },
+  "include": [
+    "packages/*/*.ts",
+    "packages/*/src/**/*",
+    "reacts/*/*.ts",
+    "reacts/*/src/**/*",
+    "serves/*/*.ts",
+    "serves/*/src/**/*",
+  ]
+}

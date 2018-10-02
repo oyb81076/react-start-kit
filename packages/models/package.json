@@ -1,0 +1,12 @@
+{
+  "name": "@pk/models",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bson": "^1.0.11"
+  },
+  "dependencies": {
+    "@pk/types": "*",
+    "bson": "^3.0.2"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "react-start-kit",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "tslint --project .",
+    "build": "gulp",
+    "start:react-ui": "cd reacts/react-ui; yarn start",
+    "start:serve-api": "cd serves/serve-api; yarn start"
+  },
+  "workspaces": [
+    "packages/*",
+    "reacts/*",
+    "serves/*",
+    "scripts"
+  ]
+}
