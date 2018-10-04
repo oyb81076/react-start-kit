@@ -26,5 +26,6 @@ export const registerReducer = (obj: any) => {
 };
 
 export const configureStore = () => {
+  if (store) { return store; }
   return store = createStore(combineReducers(reducers), enhancer);
 };

@@ -8,22 +8,22 @@ export interface IAppProps {
   store: Store;
   history: History;
   theme?: Theme;
-  ChildComponent: React.ComponentType<{}>;
+  component: React.ComponentType<{}>;
 }
 export default class App extends React.Component<IAppProps> {
   public shouldComponentUpdate() {
     return false;
   }
   public render() {
-    const { theme, store, history, ChildComponent } = this.props;
+    const { theme, store, history, component: Component } = this.props;
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
           {theme ?
             <MuiThemeProvider theme={theme}>
-              <ChildComponent />
+              <Component />
             </MuiThemeProvider>
-            : <ChildComponent />
+            : <Component />
           }
         </ConnectedRouter>
       </Provider>

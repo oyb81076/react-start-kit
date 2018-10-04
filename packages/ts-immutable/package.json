@@ -1,0 +1,14 @@
+{
+  "name": "@rt/ts-immutable",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --config=config/webpack.dev.config.ts",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "dependencies": {
+    "immutable": "^3.8.2"
+  },
+  "devDependencies": {}
+}

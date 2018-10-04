@@ -28,6 +28,8 @@ class MenuLink extends React.Component<IProps, { active: boolean }> {
       classes: { menuLinkColorPrimary, menuLink, menuLinkActive },
       href, text, Icon,
     } = this.props;
+    // tslint:disable-next-line:no-console
+    console.log(this.props.location.pathname, href);
     return (
       <ListItem
         button

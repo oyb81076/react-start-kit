@@ -1,13 +1,12 @@
 // tslint:disable:no-implicit-dependencies
-import { configureStore, history, registerReducer, render } from "@rt/react-app";
-// tslint:disable:no-implicit-dependencies
-import ChildComponent from "@rt/react-ui/example/Main";
+import { registerReducer, renderPure } from "@rt/react-app";
 import { dashboardReducer } from "../index";
+import Main from "./Main";
 registerReducer({ dashboard: dashboardReducer });
-const store = configureStore();
-render({ history, store, ChildComponent });
-if (__DEV__ && module.hot) {
+renderPure(Main);
+declare var module: any;
+if (process.env.NODE_ENV === "development" && module.hot) {
   module.hot.accept(["./Main"], () => setImmediate(() => {
-    render({ history, store, ChildComponent: require("./Main").default });
+    renderPure(require("./Main").default);
   }));
 }

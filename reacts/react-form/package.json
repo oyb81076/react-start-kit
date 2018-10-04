@@ -1,5 +1,5 @@
 {
-  "name": "@rt/react-ui",
+  "name": "@rt/react-form",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
@@ -11,11 +11,11 @@
     "classnames": "^2.2.6",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
+    "react-number-format": "^3.6.1",
     "react-redux": "^5.0.7",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
     "recompose": "^0.30.0",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-form": "^7.4.2"
   },
   "devDependencies": {
     "@pk/webpack-packager": "*",
@@ -23,9 +23,6 @@
     "@types/classnames": "^2.2.6",
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
-    "@types/react-redux": "^6.0.9",
-    "@types/react-router": "^4.0.31",
-    "@types/react-router-dom": "^4.3.1",
     "@types/recompose": "^0.26.5"
   }
 }

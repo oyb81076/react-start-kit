@@ -26,7 +26,7 @@ export const createDevConfig = (
     title = "React App",
   }: IDevConfig,
 ): webpack.Configuration => {
-  const { localUrlForBrowser, lanUrlForConfig } = prepareUrls(https, host, port);
+  const { localUrlForBrowser, lanUrlForConfig, lanUrlForTerminal } = prepareUrls(https, host, port);
   return {
     devtool: "cheap-module-source-map",
     mode: "development",
@@ -63,11 +63,18 @@ export const createDevConfig = (
         disableDotRule: true,
       },
       public: lanUrlForConfig,
+      proxy: {
+        api: "http://127.0.0.1:8080",
+      },
       before(app) {
         app.use(errorOverlayMiddleware());
         app.use(noopServiceWorkerMiddleware());
       },
-      after() { openBrowser(localUrlForBrowser); },
+      after() {
+        openBrowser(localUrlForBrowser);
+        // tslint:disable-next-line:no-console
+        console.log("project run at %s", lanUrlForTerminal);
+      },
     },
     resolve: {
       alias: {
