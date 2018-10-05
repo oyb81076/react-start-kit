@@ -1,7 +1,7 @@
-import * as Koa from "koa";
-import * as koaBody from "koa-body";
-import * as koaJson from "koa-json";
-import * as koaLogger from "koa-logger";
+import Koa from "koa";
+import koaBody from "koa-body";
+import koaJson from "koa-json";
+import koaLogger from "koa-logger";
 import routers from "./routers";
 // tslint:disable-next-line:no-var-requires
 const koaOnerror = require("koa-onerror");

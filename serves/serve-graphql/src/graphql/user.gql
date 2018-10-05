@@ -1,0 +1,22 @@
+"this is Example"
+scalar Date
+enum UserRole {
+  ROOT
+  ADMIN
+  CONSUMER
+}
+type User {
+  _id: ID
+  name: String!
+  role: UserRole!
+  age: Int!
+  created: Date!
+}
+type Query {
+  findUsers(name: String): [User]!
+  findUser(id: ID!): User!
+}
+type Mutation {
+  insertUser(name: String!, role: UserRole!, age: Int!): User!
+  updateUser(_id: ID!, name: String!, role: UserRole!, age: Int!): User!
+}

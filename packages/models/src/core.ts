@@ -5,5 +5,10 @@ export interface IUserCore<ID, DATE> {
   _id: ID;
   name: string;
   age: number;
-  timestamp: DATE;
+  created: DATE;
+}
+export interface IExampleCore<ID, DATE> {
+  _id: ID;
+  title: string;
+  created: DATE;
 }

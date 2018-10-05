@@ -1,4 +1,4 @@
-import * as Router from "koa-router";
+import Router from "koa-router";
 import signRouter from "./signRouter";
 import stsRouter from "./stsRouter";
 const router = new Router();

@@ -1,0 +1,17 @@
+"this is Example"
+scalar Date
+type Example {
+  _id: ID!
+  title: String!
+  created: Date!
+}
+
+type Query {
+  findExamples: [Example]!
+  findExample(_id: ID!): Example!
+}
+type Mutation {
+  insertExample(title: String!): Example!
+  updateExample(_id: ID!, title: String!): Example!
+  deleteExample(_id: ID!): Int
+}

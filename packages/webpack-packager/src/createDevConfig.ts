@@ -65,6 +65,7 @@ export const createDevConfig = (
       public: lanUrlForConfig,
       proxy: {
         api: "http://127.0.0.1:8080",
+        graphql: "http://127.0.0.1:4000",
       },
       before(app) {
         app.use(errorOverlayMiddleware());

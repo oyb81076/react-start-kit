@@ -2,7 +2,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormHelpText from "@material-ui/core/FormHelperText";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
-import * as React from "react";
+import React from "react";
 import NumberFormat, { NumberFormatValues } from "react-number-format";
 import { Field, WrappedFieldProps } from "redux-form";
 export interface IInputNumberFieldProps {

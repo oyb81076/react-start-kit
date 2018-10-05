@@ -88,7 +88,7 @@ class SignIn extends React.Component<IProps, IState> {
   private handleChangePassword: JSX.IntrinsicElements["input"]["onChange"] = (e) => {
     this.setState({ password: e.target.value });
   }
-  private handleChangeRememberMe: FormControlLabelProps["onChange"] = (e, checked) => {
+  private handleChangeRememberMe: FormControlLabelProps["onChange"] = (_, checked) => {
     this.setState({ rememberMe: checked });
   }
 }

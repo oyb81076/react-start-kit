@@ -5,8 +5,8 @@
 import { bucket, dir, endpoint } from "@pk/etc/src/oss";
 import { accessKeyId, accessKeySecret, arn } from "@pk/etc/src/oss-sts";
 import { ClientOpts, STS } from "ali-oss";
-import * as Router from "koa-router";
-import * as path from "path";
+import Router from "koa-router";
+import path from "path";
 import * as auth from "../auth";
 const router = new Router();
 const cli = new STS({ accessKeyId, accessKeySecret });

@@ -1,7 +1,7 @@
 import { UserRole } from "@pk/models";
 import { ObjectId } from "bson";
-import * as joi from "joi";
-import * as Router from "koa-router";
+import joi from "joi";
+import Router from "koa-router";
 import { sign } from "../auth";
 import valid from "../tools/valid";
 

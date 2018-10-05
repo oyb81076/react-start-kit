@@ -1,7 +1,8 @@
 import { ObjectId } from "bson";
-import { IUserCore, UserRole } from "./core";
+import { IExampleCore, IUserCore, UserRole } from "./core";
 
-export interface IUserBson extends IUserCore<ObjectId, Date> { }
+export type IUserBson = IUserCore<ObjectId, Date>;
+export type IExampleBson = IExampleCore<ObjectId, Date>;
 export interface ISessionBson {
   _id?: ObjectId;
   role: UserRole;

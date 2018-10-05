@@ -1,0 +1,27 @@
+{
+  "name": "@serve/serve-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development ts-node index.ts"
+  },
+  "dependencies": {
+    "@pk/etc": "*",
+    "@pk/models": "*",
+    "@types/mongodb": "^3.1.10",
+    "apollo-server": "^2.1.0",
+    "apollo-server-core": "^2.1.0",
+    "apollo-server-express": "^2.1.0",
+    "bson": "^3.0.2",
+    "express": "^4.16.3",
+    "graphql": "^14.0.2",
+    "log4js": "^3.0.5",
+    "mongodb": "^3.1.6"
+  },
+  "devDependencies": {
+    "@types/bson": "^1.0.11",
+    "@types/graphql": "^14.0.1",
+    "@types/mongodb": "^3.1.10"
+  }
+}

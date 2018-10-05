@@ -1,6 +1,6 @@
 import * as path from "@pk/url-path";
-import * as OSS from "ali-oss";
-import * as React from "react";
+import OSS from "ali-oss";
+import React from "react";
 import { IContextProps, Provider as ContextProvider } from "./context";
 export interface IProviderProps {
   // 是否包含文件后缀
