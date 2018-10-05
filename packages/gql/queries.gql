@@ -1,0 +1,26 @@
+# query by
+query GetExampleList {
+  # query sy
+  findExamples {
+    _id
+    title
+    # time
+    created
+  }
+}
+
+query GetExample($_id: ID!) {
+  findExample(_id: $_id) {
+    _id, title, created
+  }
+}
+
+query GetUsers {
+  findUsers {
+    _id, role, name
+  }
+}
+
+mutation CreateExample($title: String!){
+  insertExample(title: $title){ _id, title, created }
+}

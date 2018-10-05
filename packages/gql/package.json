@@ -1,0 +1,13 @@
+{
+  "name": "@pk/gql",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "schema": "ts-node scripts/buildSchema.ts",
+    "pregen": "apollo codegen:generate --schema=schema.json --target=typescript --queries=queries.gql --addTypename  --outputFlat --passthroughCustomScalars",
+    "gen": "ts-node scripts/buildIndex.ts",
+    "postgen": "rimraf __generated__",
+    "prebuild": "yarn schema",
+    "build": "yarn gen"
+  }
+}
