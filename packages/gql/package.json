@@ -4,10 +4,16 @@
   "license": "MIT",
   "scripts": {
     "schema": "ts-node scripts/buildSchema.ts",
-    "pregen": "apollo codegen:generate --schema=schema.json --target=typescript --queries=queries.gql --addTypename  --outputFlat --passthroughCustomScalars",
+    "pregen": "apollo codegen:generate --schema=schema.json --target=typescript --queries=queries.gql --addTypename  --outputFlat",
     "gen": "ts-node scripts/buildIndex.ts",
     "postgen": "rimraf __generated__",
     "prebuild": "yarn schema",
     "build": "yarn gen"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "glob": "^7.1.3",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0"
   }
 }

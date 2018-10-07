@@ -7,7 +7,7 @@ type Example {
 }
 
 type Query {
-  findExamples: [Example]!
+  findExamples: [Example!]!
   findExample(_id: ID!): Example!
 }
 type Mutation {

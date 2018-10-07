@@ -1,0 +1,18 @@
+{
+  "name": "@rt/react-date-format",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --config=config/webpack.dev.config.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "moment": "^2.22.2",
+    "react": "^16.5.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.4.14",
+    "@types/react-test-renderer": "^16.0.3",
+    "react-test-renderer": "^16.5.2"
+  }
+}

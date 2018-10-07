@@ -1,7 +1,6 @@
-// import { makeExecutableSchema } from "apollo-server";
 import { ObjectID } from "bson";
 import { GraphQLScalarType, Kind } from "graphql";
-ObjectID.cacheHexString = true;
+import { Moment } from "moment";
 export const GraphQLScalarID = new GraphQLScalarType({
   name: "ID",
   description: "ObjectId for mongodb",
@@ -26,12 +25,22 @@ export const GraphQLScalarDate = new GraphQLScalarType({
   name: "Date",
   description: "Date custom scalar type",
   parseValue(value: number) { return new Date(value); },
-  serialize(value: Date) {
-    return value.getTime();
+  serialize(value: Date | Moment | string | number) {
+    const type = typeof value;
+    if (type === "object") {
+      return (value as Date | Moment).toISOString();
+    } else if (value === "string") {
+      return value;
+    } else if (value === "number") {
+      return new Date(value).toISOString();
+    }
+    return value;
   },
   parseLiteral(ast) {
     if (ast.kind === Kind.INT) {
       return parseInt(ast.value, 10); // ast value is always in string format
+    } else if (ast.kind === Kind.STRING) {
+      return ast.value;
     }
     return null;
   },

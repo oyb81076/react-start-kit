@@ -1,23 +1,23 @@
-# query by
-query GetExampleList {
-  # query sy
-  findExamples {
-    _id
-    title
-    # time
-    created
-  }
+fragment ExampleFields on Example{
+ _id, title, created
 }
-
 query GetExample($_id: ID!) {
   findExample(_id: $_id) {
-    _id, title, created
+    ...ExampleFields
   }
 }
 
+query GetExampleList {
+  findExamples {
+    ...ExampleFields
+  }
+}
+fragment UserFields on User{
+  _id, role, name
+}
 query GetUsers {
   findUsers {
-    _id, role, name
+    ...UserFields
   }
 }
 

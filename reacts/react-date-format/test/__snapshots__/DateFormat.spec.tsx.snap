@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`datetime 1`] = `"2018-10-07 19:39"`;
+
+exports[`default 1`] = `"2018-10-07"`;
+
+exports[`null 1`] = `"2018-10-07"`;
+
+exports[`toNow 1`] = `"in an hour"`;

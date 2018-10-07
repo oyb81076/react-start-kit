@@ -13,7 +13,7 @@ type User {
   created: Date!
 }
 type Query {
-  findUsers(name: String): [User]!
+  findUsers(name: String): [User!]!
   findUser(id: ID!): User!
 }
 type Mutation {

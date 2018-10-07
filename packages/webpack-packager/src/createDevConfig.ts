@@ -4,6 +4,7 @@ import ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 import HtmlWebpackPlugin = require("html-webpack-plugin");
 import path = require("path");
 import webpack = require("webpack");
+import { fontRule, gqlRule, imageRule, jsRule, node, resolve, tsxRule } from "./baseConfig";
 const errorOverlayMiddleware = require("react-dev-utils/errorOverlayMiddleware");
 const noopServiceWorkerMiddleware = require("react-dev-utils/noopServiceWorkerMiddleware");
 const { prepareUrls } = require("react-dev-utils/WebpackDevServerUtils");
@@ -64,8 +65,8 @@ export const createDevConfig = (
       },
       public: lanUrlForConfig,
       proxy: {
-        api: "http://127.0.0.1:8080",
-        graphql: "http://127.0.0.1:4000",
+        "/api/*": "http://127.0.0.1:8080",
+        "/graphql": "http://127.0.0.1:4000",
       },
       before(app) {
         app.use(errorOverlayMiddleware());
@@ -77,49 +78,16 @@ export const createDevConfig = (
         console.log("project run at %s", lanUrlForTerminal);
       },
     },
-    resolve: {
-      alias: {
-        "@pk": path.join(__dirname, "../../../packages"),
-        "@rt": path.join(__dirname, "../../../reacts"),
-        "@sv": path.join(__dirname, "../../../serves"),
-      },
-      modules: [path.join(__dirname, "../../../node_modules")],
-      extensions: [".ts", ".tsx", ".js", ".json"],
-      plugins: [],
-    },
+    resolve,
     module: {
       strictExportPresence: true,
       rules: [
-        {
-          test: /\.(bmp|gif|jpg|jpeg|png)$/,
-          loader: require.resolve("url-loader"),
-          options: { limit: 10000, name: "static/images/[name].[ext]" },
-        },
-        {
-          include: /\.(svg|woff|woff2|otf|ttf|eot)$/,
-          loader: require.resolve("file-loader"),
-          options: { name: "static/fonts/[name].[ext]" },
-        },
-        {
-          test: /\.css$/,
-          use: [
-            { loader: require.resolve("style-loader") },
-            { loader: require.resolve("css-loader") },
-          ],
-        },
-        {
-          test: /\.tsx?$/,
-          include: [
-            path.join(__dirname, "../../../packages"),
-            path.join(__dirname, "../../../reacts"),
-            path.join(__dirname, "../../../serves"),
-          ],
-          exclude: /node_modules/,
-          use: [
-            { loader: require.resolve("babel-loader") },
-            { loader: require.resolve("ts-loader"), options: { transpileOnly: true } },
-          ],
-        },
+        { test: /\.css$/, use: ["style-loader", "css-loader"] },
+        imageRule,
+        fontRule,
+        tsxRule,
+        jsRule,
+        gqlRule,
       ],
     },
     plugins: [
@@ -137,11 +105,9 @@ export const createDevConfig = (
       }),
       new webpack.DefinePlugin({
         "process.env": {
-          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+          NODE_ENV: JSON.stringify("development"),
+          PUBLIC_URL: JSON.stringify(publicUrl),
         },
-        "PUBLIC_URL": JSON.stringify(publicUrl),
-        "__PRO__": false,
-        "__DEV__": true,
       }),
       new HtmlWebpackPlugin({
         inject: true,
@@ -153,14 +119,7 @@ export const createDevConfig = (
       new webpack.HotModuleReplacementPlugin(),
       new CaseSensitivePathsPlugin(),
     ],
-    node: {
-      dgram: "empty",
-      fs: "empty",
-      net: "empty",
-      tls: "empty",
-      child_process: "empty",
-      bson: "empty",
-    },
+    node,
     performance: {
       hints: false,
     },

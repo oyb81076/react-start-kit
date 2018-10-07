@@ -6,8 +6,6 @@ import {
   cleanBuild,
   cleanNodeModules,
   describe,
-  graphqlSchema,
-  makeGraphqlCodeGen,
   packageJson,
   tsc,
 } from "./scripts/gulp-tasks";
@@ -16,11 +14,6 @@ gulp.task("clean", describe(gulp.parallel(
   cleanNodeModules,
 ), "清除所有文件"));
 gulp.task("clean:build", describe(cleanAllBuild, "清除构建期间生成的各种代码"));
-gulp.task("schema", describe(graphqlSchema, "生成schema.json"));
-gulp.task("codegen", describe(
-  makeGraphqlCodeGen(path.join(__dirname, "./reacts/react-example/src")),
-  "根据reacts/**/*.gql自动生成ts文件",
-));
 gulp.task("default", describe(
   gulp.series(
     cleanBuild,

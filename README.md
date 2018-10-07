@@ -1,3 +1,8 @@
+# 关于graphql
+使用graphql的时候用 apollo codegen 自动生成代码的时候,
+需要全局安装 apollo, npm i -g apollo
+因为apollo的graphql版本和本地的graphql版本有冲突, 所以使用全局安装
+自动生成代码的命令看 packages/gql/package.json/scripts/gen
 # /packages -- @pk
 通用模块ts模块
 # /reacts -- @rt
